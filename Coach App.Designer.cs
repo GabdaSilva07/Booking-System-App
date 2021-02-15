@@ -38,10 +38,11 @@ namespace Coach_Form_UI
             this.UserNameLabel = new System.Windows.Forms.Label();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.TopMenuPanel = new System.Windows.Forms.Panel();
+            this.ChildLabel = new System.Windows.Forms.Label();
+            this.IconChild = new FontAwesome.Sharp.IconPictureBox();
             this.MiniBtn = new FontAwesome.Sharp.IconButton();
             this.CloseBtn = new FontAwesome.Sharp.IconButton();
-            this.IconChild = new FontAwesome.Sharp.IconPictureBox();
-            this.ChildLabel = new System.Windows.Forms.Label();
+            this.deskTopPanel = new System.Windows.Forms.Panel();
             this.MainPannel.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
@@ -200,6 +201,32 @@ namespace Coach_Form_UI
             this.TopMenuPanel.TabIndex = 1;
             this.TopMenuPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TopMenuPanel_MouseDown);
             // 
+            // ChildLabel
+            // 
+            this.ChildLabel.AutoSize = true;
+            this.ChildLabel.Font = new System.Drawing.Font("Nirmala UI", 9.900001F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChildLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.ChildLabel.Location = new System.Drawing.Point(94, 19);
+            this.ChildLabel.Name = "ChildLabel";
+            this.ChildLabel.Size = new System.Drawing.Size(116, 46);
+            this.ChildLabel.TabIndex = 3;
+            this.ChildLabel.Text = "Home";
+            // 
+            // IconChild
+            // 
+            this.IconChild.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.IconChild.Dock = System.Windows.Forms.DockStyle.Left;
+            this.IconChild.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal;
+            this.IconChild.IconChar = FontAwesome.Sharp.IconChar.Home;
+            this.IconChild.IconColor = System.Drawing.Color.White;
+            this.IconChild.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.IconChild.IconSize = 88;
+            this.IconChild.Location = new System.Drawing.Point(0, 0);
+            this.IconChild.Name = "IconChild";
+            this.IconChild.Size = new System.Drawing.Size(88, 89);
+            this.IconChild.TabIndex = 2;
+            this.IconChild.TabStop = false;
+            // 
             // MiniBtn
             // 
             this.MiniBtn.Dock = System.Windows.Forms.DockStyle.Right;
@@ -232,31 +259,13 @@ namespace Coach_Form_UI
             this.CloseBtn.UseVisualStyleBackColor = true;
             this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
-            // IconChild
+            // deskTopPanel
             // 
-            this.IconChild.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.IconChild.Dock = System.Windows.Forms.DockStyle.Left;
-            this.IconChild.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal;
-            this.IconChild.IconChar = FontAwesome.Sharp.IconChar.Home;
-            this.IconChild.IconColor = System.Drawing.Color.White;
-            this.IconChild.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.IconChild.IconSize = 88;
-            this.IconChild.Location = new System.Drawing.Point(0, 0);
-            this.IconChild.Name = "IconChild";
-            this.IconChild.Size = new System.Drawing.Size(88, 89);
-            this.IconChild.TabIndex = 2;
-            this.IconChild.TabStop = false;
-            // 
-            // ChildLabel
-            // 
-            this.ChildLabel.AutoSize = true;
-            this.ChildLabel.Font = new System.Drawing.Font("Nirmala UI", 9.900001F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ChildLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.ChildLabel.Location = new System.Drawing.Point(94, 19);
-            this.ChildLabel.Name = "ChildLabel";
-            this.ChildLabel.Size = new System.Drawing.Size(116, 46);
-            this.ChildLabel.TabIndex = 3;
-            this.ChildLabel.Text = "Home";
+            this.deskTopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.deskTopPanel.Location = new System.Drawing.Point(391, 89);
+            this.deskTopPanel.Name = "deskTopPanel";
+            this.deskTopPanel.Size = new System.Drawing.Size(2114, 1028);
+            this.deskTopPanel.TabIndex = 2;
             // 
             // Form1
             // 
@@ -264,6 +273,7 @@ namespace Coach_Form_UI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(2505, 1117);
+            this.Controls.Add(this.deskTopPanel);
             this.Controls.Add(this.TopMenuPanel);
             this.Controls.Add(this.MainPannel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -296,6 +306,8 @@ namespace Coach_Form_UI
         private FontAwesome.Sharp.IconButton MiniBtn;
         private FontAwesome.Sharp.IconPictureBox IconChild;
         private System.Windows.Forms.Label ChildLabel;
+        private System.Windows.Forms.Panel deskTopPanel;
+
     }
 }
 

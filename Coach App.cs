@@ -10,6 +10,7 @@ namespace Coach_Form_UI
     {
         private IconButton currentBtn;
         private Panel leftBtnMenu;
+        private Form childForm;
 
 
         public Form1()
@@ -23,11 +24,35 @@ namespace Coach_Form_UI
             this.DoubleBuffered = true;
             this.ControlBox = false;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            this.openChildForm(new HomeForm());
+            
 
 
         }
 
-        private struct RGBColors
+        private void openChildForm(Form aChildForm) 
+        {
+
+            if (childForm != null)
+            {
+                //Close a child form to have only one open
+                childForm.Close();
+            }
+
+            childForm = aChildForm;
+            aChildForm.TopLevel = false;
+            aChildForm.FormBorderStyle = FormBorderStyle.None;
+            aChildForm.Dock = DockStyle.Fill;
+            deskTopPanel.Controls.Add(aChildForm);
+            deskTopPanel.Tag = aChildForm;
+            aChildForm.BringToFront();
+            aChildForm.Show();
+            aChildForm.BackColor = Color.FromArgb(46, 51, 73);
+
+
+        }
+
+        public struct RGBColors
         {
             public static Color color1 = Color.FromArgb(172, 126, 241);
             public static Color color2 = Color.FromArgb(249, 118, 176);
@@ -50,6 +75,7 @@ namespace Coach_Form_UI
                 currentBtn.IconColor = color;
                 currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
                 currentBtn.ImageAlign = ContentAlignment.MiddleRight;
+                
 
                 //left btn color
                 leftBtnMenu.BackColor = color;
@@ -80,6 +106,7 @@ namespace Coach_Form_UI
 
             }
             
+
         }
 
 
@@ -87,7 +114,10 @@ namespace Coach_Form_UI
 
         private void HomeBtn_Click(object sender, EventArgs e)
         {
+            
             activeBtn(sender, RGBColors.color1);
+            openChildForm(new HomeForm());
+
 
             
         }
@@ -95,16 +125,19 @@ namespace Coach_Form_UI
         private void BookTicketBtn_Click(object sender, EventArgs e)
         {
             activeBtn(sender, RGBColors.color2);
+            openChildForm(new BookTicketForm());
         }
 
         private void Account_Click(object sender, EventArgs e)
         {
             activeBtn(sender, RGBColors.color3);
+            openChildForm(new AccountForm());
         }
 
         private void AbountUsBtn_Click(object sender, EventArgs e)
         {
             activeBtn(sender, RGBColors.color4);
+            openChildForm(new AbountUsForm());
         }
 
 
