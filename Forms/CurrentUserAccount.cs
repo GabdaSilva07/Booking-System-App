@@ -8,24 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace Coach_Form_UI
 {
-    public partial class HomeForm : Form
+    public partial class CurrentUserAccount : Form
     {
-
-        private Form childForm;
-
-        public HomeForm()
+        public CurrentUserAccount()
         {
             InitializeComponent();
-
-
-
-
         }
-
-
-
     }
 }

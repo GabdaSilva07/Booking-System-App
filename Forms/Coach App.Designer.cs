@@ -1,7 +1,7 @@
 ﻿
 namespace Coach_Form_UI
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -42,7 +42,7 @@ namespace Coach_Form_UI
             this.IconChild = new FontAwesome.Sharp.IconPictureBox();
             this.MiniBtn = new FontAwesome.Sharp.IconButton();
             this.CloseBtn = new FontAwesome.Sharp.IconButton();
-            this.deskTopPanel = new System.Windows.Forms.Panel();
+            this.MainPanel = new System.Windows.Forms.Panel();
             this.MainPannel.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
@@ -82,6 +82,7 @@ namespace Coach_Form_UI
             this.AboutUsBtn.Size = new System.Drawing.Size(391, 110);
             this.AboutUsBtn.TabIndex = 4;
             this.AboutUsBtn.Text = "About Us";
+            this.AboutUsBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.AboutUsBtn.UseVisualStyleBackColor = false;
             this.AboutUsBtn.Click += new System.EventHandler(this.AbountUsBtn_Click);
             // 
@@ -103,6 +104,7 @@ namespace Coach_Form_UI
             this.AccountBtn.Size = new System.Drawing.Size(391, 110);
             this.AccountBtn.TabIndex = 3;
             this.AccountBtn.Text = "Account";
+            this.AccountBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.AccountBtn.UseVisualStyleBackColor = false;
             this.AccountBtn.Click += new System.EventHandler(this.Account_Click);
             // 
@@ -124,6 +126,7 @@ namespace Coach_Form_UI
             this.BookTicketBtn.Size = new System.Drawing.Size(391, 110);
             this.BookTicketBtn.TabIndex = 2;
             this.BookTicketBtn.Text = "Book Ticket";
+            this.BookTicketBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.BookTicketBtn.UseVisualStyleBackColor = false;
             this.BookTicketBtn.Click += new System.EventHandler(this.BookTicketBtn_Click);
             // 
@@ -145,6 +148,7 @@ namespace Coach_Form_UI
             this.HomeBtn.Size = new System.Drawing.Size(391, 110);
             this.HomeBtn.TabIndex = 1;
             this.HomeBtn.Text = "Home";
+            this.HomeBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.HomeBtn.UseVisualStyleBackColor = true;
             this.HomeBtn.Click += new System.EventHandler(this.HomeBtn_Click);
             // 
@@ -259,25 +263,25 @@ namespace Coach_Form_UI
             this.CloseBtn.UseVisualStyleBackColor = true;
             this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
-            // deskTopPanel
+            // MainPanel
             // 
-            this.deskTopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.deskTopPanel.Location = new System.Drawing.Point(391, 89);
-            this.deskTopPanel.Name = "deskTopPanel";
-            this.deskTopPanel.Size = new System.Drawing.Size(2114, 1028);
-            this.deskTopPanel.TabIndex = 2;
+            this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainPanel.Location = new System.Drawing.Point(391, 89);
+            this.MainPanel.Name = "MainPanel";
+            this.MainPanel.Size = new System.Drawing.Size(2114, 1028);
+            this.MainPanel.TabIndex = 2;
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(2505, 1117);
-            this.Controls.Add(this.deskTopPanel);
+            this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.TopMenuPanel);
             this.Controls.Add(this.MainPannel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.MainPannel.ResumeLayout(false);
@@ -306,7 +310,7 @@ namespace Coach_Form_UI
         private FontAwesome.Sharp.IconButton MiniBtn;
         private FontAwesome.Sharp.IconPictureBox IconChild;
         private System.Windows.Forms.Label ChildLabel;
-        private System.Windows.Forms.Panel deskTopPanel;
+        private System.Windows.Forms.Panel MainPanel;
 
     }
 }

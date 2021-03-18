@@ -1,7 +1,7 @@
 ﻿
 namespace Coach_Form_UI
 {
-    partial class HomeForm
+    partial class CurrentUserAccount
     {
         /// <summary>
         /// Required designer variable.
@@ -21,7 +21,6 @@ namespace Coach_Form_UI
             base.Dispose(disposing);
         }
 
-
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -30,18 +29,10 @@ namespace Coach_Form_UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // HomeForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.ClientSize = new System.Drawing.Size(2109, 1146);
-            this.Name = "HomeForm";
-            this.Text = "HomeForm";
-            this.ResumeLayout(false);
-
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "CurrentUserAccount";
         }
 
         #endregion

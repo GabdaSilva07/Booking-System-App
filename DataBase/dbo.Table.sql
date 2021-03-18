@@ -1,5 +1,0 @@
-﻿CREATE TABLE [dbo].[Cities]
-(
-	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [Cities] NVARCHAR(50) NOT NULL
-)

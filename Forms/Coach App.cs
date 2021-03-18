@@ -6,14 +6,14 @@ using FontAwesome.Sharp;
 
 namespace Coach_Form_UI
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         private IconButton currentBtn;
         private Panel leftBtnMenu;
         private Form childForm;
 
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             leftBtnMenu = new Panel();
@@ -27,10 +27,9 @@ namespace Coach_Form_UI
             this.openChildForm(new HomeForm());
             
 
-
         }
 
-        private void openChildForm(Form aChildForm) 
+        public void openChildForm(Form aChildForm) 
         {
 
             if (childForm != null)
@@ -42,9 +41,9 @@ namespace Coach_Form_UI
             childForm = aChildForm;
             aChildForm.TopLevel = false;
             aChildForm.FormBorderStyle = FormBorderStyle.None;
+            MainPanel.Controls.Add(aChildForm);
+            MainPanel.Tag = aChildForm;
             aChildForm.Dock = DockStyle.Fill;
-            deskTopPanel.Controls.Add(aChildForm);
-            deskTopPanel.Tag = aChildForm;
             aChildForm.BringToFront();
             aChildForm.Show();
             aChildForm.BackColor = Color.FromArgb(46, 51, 73);
