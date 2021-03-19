@@ -58,6 +58,9 @@ namespace Coach_Form_UI
             this.confirmPasswordReg = new System.Windows.Forms.TextBox();
             this.signUpBtn = new System.Windows.Forms.Button();
             this.seePassword = new FontAwesome.Sharp.IconPictureBox();
+            this.topPanel = new System.Windows.Forms.Panel();
+            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
+            this.logInCloseBtn = new FontAwesome.Sharp.IconPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.LogInIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UserNameIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LogInPassword)).BeginInit();
@@ -66,6 +69,9 @@ namespace Coach_Form_UI
             this.panel7.SuspendLayout();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.seePassword)).BeginInit();
+            this.topPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logInCloseBtn)).BeginInit();
             this.SuspendLayout();
             // 
             // LogInIcon
@@ -76,7 +82,7 @@ namespace Coach_Form_UI
             this.LogInIcon.IconColor = System.Drawing.Color.White;
             this.LogInIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.LogInIcon.IconSize = 255;
-            this.LogInIcon.Location = new System.Drawing.Point(309, 138);
+            this.LogInIcon.Location = new System.Drawing.Point(447, 211);
             this.LogInIcon.Name = "LogInIcon";
             this.LogInIcon.Size = new System.Drawing.Size(255, 256);
             this.LogInIcon.TabIndex = 0;
@@ -90,7 +96,7 @@ namespace Coach_Form_UI
             this.UserNameIcon.IconColor = System.Drawing.Color.White;
             this.UserNameIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.UserNameIcon.IconSize = 58;
-            this.UserNameIcon.Location = new System.Drawing.Point(88, 519);
+            this.UserNameIcon.Location = new System.Drawing.Point(226, 592);
             this.UserNameIcon.Name = "UserNameIcon";
             this.UserNameIcon.Size = new System.Drawing.Size(58, 65);
             this.UserNameIcon.TabIndex = 1;
@@ -99,7 +105,7 @@ namespace Coach_Form_UI
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(88, 590);
+            this.panel1.Location = new System.Drawing.Point(226, 663);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(694, 1);
             this.panel1.TabIndex = 2;
@@ -112,7 +118,7 @@ namespace Coach_Form_UI
             this.LogInPassword.IconColor = System.Drawing.Color.White;
             this.LogInPassword.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.LogInPassword.IconSize = 58;
-            this.LogInPassword.Location = new System.Drawing.Point(88, 645);
+            this.LogInPassword.Location = new System.Drawing.Point(226, 718);
             this.LogInPassword.Name = "LogInPassword";
             this.LogInPassword.Size = new System.Drawing.Size(58, 65);
             this.LogInPassword.TabIndex = 1;
@@ -122,7 +128,7 @@ namespace Coach_Form_UI
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(88, 716);
+            this.panel2.Location = new System.Drawing.Point(226, 789);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(694, 1);
             this.panel2.TabIndex = 2;
@@ -141,7 +147,7 @@ namespace Coach_Form_UI
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Gadugi", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(343, 418);
+            this.label2.Location = new System.Drawing.Point(481, 491);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(178, 56);
             this.label2.TabIndex = 3;
@@ -153,7 +159,7 @@ namespace Coach_Form_UI
             this.signInBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.signInBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.signInBtn.ForeColor = System.Drawing.Color.White;
-            this.signInBtn.Location = new System.Drawing.Point(88, 777);
+            this.signInBtn.Location = new System.Drawing.Point(226, 850);
             this.signInBtn.Name = "signInBtn";
             this.signInBtn.Size = new System.Drawing.Size(694, 55);
             this.signInBtn.TabIndex = 4;
@@ -164,9 +170,9 @@ namespace Coach_Form_UI
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Location = new System.Drawing.Point(925, 43);
+            this.panel3.Location = new System.Drawing.Point(1103, 91);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1, 852);
+            this.panel3.Size = new System.Drawing.Size(1, 1000);
             this.panel3.TabIndex = 5;
             // 
             // label3
@@ -174,7 +180,7 @@ namespace Coach_Form_UI
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Gadugi", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(1355, 43);
+            this.label3.Location = new System.Drawing.Point(1573, 175);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(227, 56);
             this.label3.TabIndex = 3;
@@ -186,7 +192,7 @@ namespace Coach_Form_UI
             this.LogInEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.LogInEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LogInEmail.ForeColor = System.Drawing.Color.DimGray;
-            this.LogInEmail.Location = new System.Drawing.Point(177, 519);
+            this.LogInEmail.Location = new System.Drawing.Point(315, 592);
             this.LogInEmail.Name = "LogInEmail";
             this.LogInEmail.Size = new System.Drawing.Size(602, 114);
             this.LogInEmail.TabIndex = 6;
@@ -200,7 +206,7 @@ namespace Coach_Form_UI
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.ForeColor = System.Drawing.Color.DimGray;
-            this.txtPassword.Location = new System.Drawing.Point(177, 644);
+            this.txtPassword.Location = new System.Drawing.Point(315, 717);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(605, 114);
             this.txtPassword.TabIndex = 6;
@@ -212,7 +218,7 @@ namespace Coach_Form_UI
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.Location = new System.Drawing.Point(1140, 228);
+            this.panel4.Location = new System.Drawing.Point(1358, 360);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(694, 1);
             this.panel4.TabIndex = 2;
@@ -221,7 +227,7 @@ namespace Coach_Form_UI
             // 
             this.panel5.BackColor = System.Drawing.Color.White;
             this.panel5.Controls.Add(this.label4);
-            this.panel5.Location = new System.Drawing.Point(1140, 354);
+            this.panel5.Location = new System.Drawing.Point(1358, 486);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(694, 1);
             this.panel5.TabIndex = 2;
@@ -241,7 +247,7 @@ namespace Coach_Form_UI
             this.firstNameReg.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.firstNameReg.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.firstNameReg.ForeColor = System.Drawing.Color.DimGray;
-            this.firstNameReg.Location = new System.Drawing.Point(1191, 157);
+            this.firstNameReg.Location = new System.Drawing.Point(1409, 289);
             this.firstNameReg.Multiline = true;
             this.firstNameReg.Name = "firstNameReg";
             this.firstNameReg.Size = new System.Drawing.Size(605, 65);
@@ -257,7 +263,7 @@ namespace Coach_Form_UI
             this.surNameReg.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.surNameReg.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.surNameReg.ForeColor = System.Drawing.Color.DimGray;
-            this.surNameReg.Location = new System.Drawing.Point(1191, 282);
+            this.surNameReg.Location = new System.Drawing.Point(1409, 414);
             this.surNameReg.Multiline = true;
             this.surNameReg.Name = "surNameReg";
             this.surNameReg.Size = new System.Drawing.Size(605, 65);
@@ -270,7 +276,7 @@ namespace Coach_Form_UI
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.White;
-            this.panel6.Location = new System.Drawing.Point(1140, 465);
+            this.panel6.Location = new System.Drawing.Point(1358, 597);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(694, 1);
             this.panel6.TabIndex = 2;
@@ -279,7 +285,7 @@ namespace Coach_Form_UI
             // 
             this.panel7.BackColor = System.Drawing.Color.White;
             this.panel7.Controls.Add(this.label5);
-            this.panel7.Location = new System.Drawing.Point(1140, 591);
+            this.panel7.Location = new System.Drawing.Point(1358, 723);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(694, 1);
             this.panel7.TabIndex = 2;
@@ -299,7 +305,7 @@ namespace Coach_Form_UI
             this.emailReg.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.emailReg.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emailReg.ForeColor = System.Drawing.Color.DimGray;
-            this.emailReg.Location = new System.Drawing.Point(1191, 394);
+            this.emailReg.Location = new System.Drawing.Point(1409, 526);
             this.emailReg.Multiline = true;
             this.emailReg.Name = "emailReg";
             this.emailReg.Size = new System.Drawing.Size(605, 65);
@@ -315,7 +321,7 @@ namespace Coach_Form_UI
             this.ageReg.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ageReg.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ageReg.ForeColor = System.Drawing.Color.DimGray;
-            this.ageReg.Location = new System.Drawing.Point(1191, 519);
+            this.ageReg.Location = new System.Drawing.Point(1409, 651);
             this.ageReg.Multiline = true;
             this.ageReg.Name = "ageReg";
             this.ageReg.Size = new System.Drawing.Size(605, 65);
@@ -328,7 +334,7 @@ namespace Coach_Form_UI
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.White;
-            this.panel8.Location = new System.Drawing.Point(1140, 713);
+            this.panel8.Location = new System.Drawing.Point(1358, 845);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(694, 1);
             this.panel8.TabIndex = 2;
@@ -337,7 +343,7 @@ namespace Coach_Form_UI
             // 
             this.panel9.BackColor = System.Drawing.Color.White;
             this.panel9.Controls.Add(this.label6);
-            this.panel9.Location = new System.Drawing.Point(1140, 839);
+            this.panel9.Location = new System.Drawing.Point(1358, 971);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(694, 1);
             this.panel9.TabIndex = 2;
@@ -357,7 +363,7 @@ namespace Coach_Form_UI
             this.passwordReg.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.passwordReg.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passwordReg.ForeColor = System.Drawing.Color.DimGray;
-            this.passwordReg.Location = new System.Drawing.Point(1191, 642);
+            this.passwordReg.Location = new System.Drawing.Point(1409, 774);
             this.passwordReg.Multiline = true;
             this.passwordReg.Name = "passwordReg";
             this.passwordReg.Size = new System.Drawing.Size(605, 65);
@@ -374,7 +380,7 @@ namespace Coach_Form_UI
             this.confirmPasswordReg.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.confirmPasswordReg.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.confirmPasswordReg.ForeColor = System.Drawing.Color.DimGray;
-            this.confirmPasswordReg.Location = new System.Drawing.Point(1191, 767);
+            this.confirmPasswordReg.Location = new System.Drawing.Point(1409, 899);
             this.confirmPasswordReg.Multiline = true;
             this.confirmPasswordReg.Name = "confirmPasswordReg";
             this.confirmPasswordReg.Size = new System.Drawing.Size(605, 65);
@@ -390,7 +396,7 @@ namespace Coach_Form_UI
             this.signUpBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.signUpBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.signUpBtn.ForeColor = System.Drawing.Color.White;
-            this.signUpBtn.Location = new System.Drawing.Point(1140, 902);
+            this.signUpBtn.Location = new System.Drawing.Point(1358, 1034);
             this.signUpBtn.Name = "signUpBtn";
             this.signUpBtn.Size = new System.Drawing.Size(694, 55);
             this.signUpBtn.TabIndex = 4;
@@ -405,11 +411,53 @@ namespace Coach_Form_UI
             this.seePassword.IconColor = System.Drawing.Color.White;
             this.seePassword.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.seePassword.IconSize = 60;
-            this.seePassword.Location = new System.Drawing.Point(719, 654);
+            this.seePassword.Location = new System.Drawing.Point(857, 727);
             this.seePassword.Name = "seePassword";
             this.seePassword.Size = new System.Drawing.Size(60, 60);
             this.seePassword.TabIndex = 7;
             this.seePassword.TabStop = false;
+            // 
+            // topPanel
+            // 
+            this.topPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.topPanel.Controls.Add(this.iconPictureBox1);
+            this.topPanel.Controls.Add(this.logInCloseBtn);
+            this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.topPanel.Location = new System.Drawing.Point(0, 0);
+            this.topPanel.Name = "topPanel";
+            this.topPanel.Size = new System.Drawing.Size(2404, 72);
+            this.topPanel.TabIndex = 8;
+            this.topPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.topPanel_MouseDown);
+            // 
+            // iconPictureBox1
+            // 
+            this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.iconPictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
+            this.iconPictureBox1.IconColor = System.Drawing.Color.White;
+            this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox1.IconSize = 72;
+            this.iconPictureBox1.Location = new System.Drawing.Point(2258, 0);
+            this.iconPictureBox1.Name = "iconPictureBox1";
+            this.iconPictureBox1.Size = new System.Drawing.Size(74, 72);
+            this.iconPictureBox1.TabIndex = 1;
+            this.iconPictureBox1.TabStop = false;
+            this.iconPictureBox1.Click += new System.EventHandler(this.iconPictureBox1_Click);
+            // 
+            // logInCloseBtn
+            // 
+            this.logInCloseBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.logInCloseBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.logInCloseBtn.IconChar = FontAwesome.Sharp.IconChar.WindowClose;
+            this.logInCloseBtn.IconColor = System.Drawing.Color.White;
+            this.logInCloseBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.logInCloseBtn.IconSize = 72;
+            this.logInCloseBtn.Location = new System.Drawing.Point(2332, 0);
+            this.logInCloseBtn.Name = "logInCloseBtn";
+            this.logInCloseBtn.Size = new System.Drawing.Size(72, 72);
+            this.logInCloseBtn.TabIndex = 0;
+            this.logInCloseBtn.TabStop = false;
+            this.logInCloseBtn.Click += new System.EventHandler(this.logInCloseBtn_Click);
             // 
             // AccountForm
             // 
@@ -417,6 +465,7 @@ namespace Coach_Form_UI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(2404, 1243);
+            this.Controls.Add(this.topPanel);
             this.Controls.Add(this.seePassword);
             this.Controls.Add(this.confirmPasswordReg);
             this.Controls.Add(this.ageReg);
@@ -457,6 +506,9 @@ namespace Coach_Form_UI
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.seePassword)).EndInit();
+            this.topPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logInCloseBtn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -493,5 +545,8 @@ namespace Coach_Form_UI
         private System.Windows.Forms.TextBox confirmPasswordReg;
         private System.Windows.Forms.Button signUpBtn;
         private FontAwesome.Sharp.IconPictureBox seePassword;
+        private System.Windows.Forms.Panel topPanel;
+        private FontAwesome.Sharp.IconPictureBox logInCloseBtn;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
     }
 }
