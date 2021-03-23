@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coach Form UI", "Coach Form
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coach UI Test", "..\Coach UI Test\Coach UI Test.csproj", "{E1823CC4-6D73-47E2-9662-F3C6B186A2D7}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "CoachDATABASE", "..\CoachDATABASE\CoachDATABASE.sqlproj", "{76D32DD7-BAFE-47C8-A451-460C94090DAF}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "COACH DATABASE", "..\COACH DATABASE\COACH DATABASE.sqlproj", "{35BAFAD4-3A53-4D52-B8DD-B325AA652594}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,12 +23,12 @@ Global
 		{E1823CC4-6D73-47E2-9662-F3C6B186A2D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1823CC4-6D73-47E2-9662-F3C6B186A2D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1823CC4-6D73-47E2-9662-F3C6B186A2D7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{76D32DD7-BAFE-47C8-A451-460C94090DAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{76D32DD7-BAFE-47C8-A451-460C94090DAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{76D32DD7-BAFE-47C8-A451-460C94090DAF}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{76D32DD7-BAFE-47C8-A451-460C94090DAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{76D32DD7-BAFE-47C8-A451-460C94090DAF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{76D32DD7-BAFE-47C8-A451-460C94090DAF}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{35BAFAD4-3A53-4D52-B8DD-B325AA652594}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35BAFAD4-3A53-4D52-B8DD-B325AA652594}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35BAFAD4-3A53-4D52-B8DD-B325AA652594}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{35BAFAD4-3A53-4D52-B8DD-B325AA652594}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35BAFAD4-3A53-4D52-B8DD-B325AA652594}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35BAFAD4-3A53-4D52-B8DD-B325AA652594}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -54,7 +54,11 @@
     <Reference Include="FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\FontAwesome.Sharp.5.15.3\lib\net472\FontAwesome.Sharp.dll</HintPath>
     </Reference>
+    <Reference Include="Geolocation, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Geolocation.1.2.1\lib\net451\Geolocation.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -67,14 +71,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="COACH_DATABASE_FINALDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>COACH_DATABASE_FINALDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Add City.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Add City.Designer.cs">
+      <DependentUpon>Add City.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CurrentUserAccount.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\CurrentUserAccount.Designer.cs">
       <DependentUpon>CurrentUserAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\User.cs" />
-    <Compile Include="NavigationClass.cs">
+    <Compile Include="Forms\ManageCoaches.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ManageCoaches.Designer.cs">
+      <DependentUpon>ManageCoaches.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NavigationClass.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\AbountUsForm.cs">
@@ -83,11 +103,11 @@
     <Compile Include="Forms\AbountUsForm.Designer.cs">
       <DependentUpon>AbountUsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AccountForm.cs">
+    <Compile Include="Forms\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AccountForm.Designer.cs">
-      <DependentUpon>AccountForm.cs</DependentUpon>
+    <Compile Include="Forms\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\BookTicketForm.cs">
       <SubType>Form</SubType>
@@ -107,10 +127,20 @@
     <Compile Include="Forms\HomeForm.Designer.cs">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Manage User Booking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Manage User Booking.Designer.cs">
+      <DependentUpon>Manage User Booking.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\AccountForm.resx">
-      <DependentUpon>AccountForm.cs</DependentUpon>
+    <Compile Include="Models\UserModel.cs" />
+    <EmbeddedResource Include="Forms\Add City.resx">
+      <DependentUpon>Add City.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Coach App.resx">
       <DependentUpon>Coach App.cs</DependentUpon>
@@ -121,6 +151,9 @@
     <EmbeddedResource Include="Forms\HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ManageCoaches.resx">
+      <DependentUpon>ManageCoaches.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -130,6 +163,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="COACH_DATABASE_FINALDataSet.xsc">
+      <DependentUpon>COACH_DATABASE_FINALDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="COACH_DATABASE_FINALDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>COACH_DATABASE_FINALDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="COACH_DATABASE_FINALDataSet.xss">
+      <DependentUpon>COACH_DATABASE_FINALDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

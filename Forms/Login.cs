@@ -5,18 +5,26 @@ using System.Net.Mail;
 using System.Windows.Forms;
 using System.Data;
 using System.Runtime.InteropServices;
+using System.Threading;
 
 namespace Coach_Form_UI
 {
     public partial class AccountForm : Form
     {
-        SqlConnection connection = new SqlConnection("Server=(localdb)\\MSSQLLocalDB;Database=Coach DATABASE;Trusted_Connection=true");
+        SqlConnection connection = new SqlConnection("Server=(localdb)\\MSSQLLocalDB;Database=COACH DATABASE FINAL;Trusted_Connection=true");
+        Thread thread;
 
-        Form userAccountForm;
+        private static string userFirstName;
+        private static string userSurname;
+        private static string userEmail;
+        private static int userAge;
+        private static string userPassword;
+        
 
         public AccountForm()
         {
             InitializeComponent();
+
 
 
         }
@@ -62,25 +70,31 @@ namespace Coach_Form_UI
 
 
             using (connection)
-            using (SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT Email FROM Account WHERE Email = '" + email + "'", connection))
+            using (SqlCommand command = new SqlCommand("SELECT * FROM UserAccounts WHERE Email = '" + email + "'", connection))
             {
-                DataTable dataTable = new DataTable();
-                dataAdapter.Fill(dataTable);
+                connection.Open();
 
-                if (dataTable.Rows.Count >= 1)
+                
+                DataSet dataSet = new DataSet();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                dataAdapter.Fill(dataSet);
+                int i = dataSet.Tables[0].Rows.Count;
+
+                if (i >= 1)
                 {
                     MessageBox.Show("Account with Email already exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
                 }
                 else
                 {
 
-                    string query = "INSERT INTO Account VALUES(@Firstname, @Surname, @Email, @Age, @Password)";
+                    string query = "INSERT INTO UserAccounts VALUES(@Email, @Firstname, @Surname, @Age, @Password)";
                     try
                     {
 
                         using (SqlCommand commandAccount = new SqlCommand(query, connection))
                         {
-                            connection.Open();
+
 
                             commandAccount.Parameters.AddWithValue("@Firstname", firstName);
                             commandAccount.Parameters.AddWithValue("@Surname", surname);
@@ -101,33 +115,44 @@ namespace Coach_Form_UI
 
 
                     MessageBox.Show("Your account has been created");
+                    return;
                 }
-            
+
             }
 
         }
 
         private void signInBtn_Click(object sender, EventArgs e)
         {
-            
-            SqlConnection connection = new SqlConnection();
+
+
             SqlCommand command = new SqlCommand();
-            connection.ConnectionString = "Server=(localdb)\\MSSQLLocalDB;Database=Coach DATABASE;Trusted_Connection=true";
+
 
             connection.Open();
             command.Connection = connection;
-            command.CommandText = "select * FROM Account";
+            command.CommandText = "SELECT * FROM UserAccounts Where Email ='" + LogInEmail.Text + "'";
             SqlDataReader sqlDataReader = command.ExecuteReader();
 
             if (sqlDataReader.Read())
             {
-                if (LogInEmail.Text.Equals(sqlDataReader["Email"].ToString()) && txtPassword.Text.Equals(sqlDataReader["Password"].ToString()))
-                {
-                    MessageBox.Show("Login Successful", "LogIn");
 
-                    MainForm mainForm = new MainForm();
-                    mainForm.Show();
-                    this.Hide();
+
+                if (LogInEmail.Text.ToString().Equals(sqlDataReader["Email"].ToString()) && txtPassword.Text.ToString().Equals(sqlDataReader["Password"].ToString()))
+                {
+                    
+                    userFirstName = sqlDataReader["Firstname"].ToString();
+                    userSurname = sqlDataReader["Surname"].ToString();
+                    userEmail = sqlDataReader["Email"].ToString();
+                    userAge = int.Parse(sqlDataReader["Age"].ToString());
+                    userPassword = sqlDataReader["Password"].ToString();
+
+                    MessageBox.Show("Login Successful", "LogIn", MessageBoxButtons.OK);
+
+                    thread = new Thread(openNewForm);
+                    thread.SetApartmentState(ApartmentState.STA);
+                    thread.Start();
+                    this.Close();
 
                 }
                 else
@@ -136,9 +161,15 @@ namespace Coach_Form_UI
                 }
             }
 
-            connection.Close(); 
+            connection.Close();
 
 
+        }
+
+        public void openNewForm()
+        {
+            Application.Run(new MainForm(userFirstName, userEmail, userSurname, userAge, userPassword));
+        
         }
 
         public string nameValidation(TextBox textBox, string errorLocation)
@@ -185,6 +216,7 @@ namespace Coach_Form_UI
                 result = "Invalid Input";
 
             }
+
 
             return result;
 

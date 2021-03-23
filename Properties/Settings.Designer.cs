@@ -44,5 +44,16 @@ namespace Coach_Form_UI.Properties {
                 return ((string)(this["Coach_UI_DatabaseConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=\"COACH DATABASE FINAL\";Integra" +
+            "ted Security=True")]
+        public string COACH_DATABASE_FINALConnectionString {
+            get {
+                return ((string)(this["COACH_DATABASE_FINALConnectionString"]));
+            }
+        }
     }
 }

@@ -8,45 +8,53 @@ namespace Coach_Form_UI
 {
     class UserModel
     {
-        private string firstName;
-        private string surname;
-        private string email;
-        private int age;
-        private string password;
+        private string email { get; set; }
 
+        private string firstName { get; set; }
+
+        private string surname { get; set; }
+
+        private int age { get; set; }
+
+        private string password { get; set; }
+
+        private bool isAdmin { get; set; }
 
         public UserModel()
-        {
-        }
+        { }
 
-        public UserModel(string firstName, string surname, string email, int age, string password)
+        public UserModel(string email, string firstName, string surname, int age, string password, bool isAdmin)
         {
-            FirstName = firstName;
-            Surname = surname;
             Email = email;
+            Firstname = firstName;
+            Surname = surname;
             Age = age;
             Password = password;
+            Admin = isAdmin;
         }
 
-        public string FirstName 
-        { get { return firstName; } 
-          set { firstName = value; } 
-        }
-        public string Surname
-        {
-            get { return surname; }
-            set { surname = value; }
-        }
         public string Email
         {
             get { return email; }
             set { email = value; }
         }
 
+        public string Firstname
+        {
+            get { return firstName; }
+            set { firstName = value; }
+        }
+
+        public string Surname
+        {
+            get { return surname; }
+            set { surname = value; }
+        }
+
         public int Age
         {
             get { return age; }
-            set { age= value; }
+            set { age = value; }
         }
 
         public string Password
@@ -55,6 +63,11 @@ namespace Coach_Form_UI
             set { password = value; }
         }
 
+        public bool Admin
+        {
+            get { return isAdmin; }
+            set { isAdmin = value; }
+        }
 
     }
 }

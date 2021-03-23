@@ -43,6 +43,8 @@ namespace Coach_Form_UI
             this.MiniBtn = new FontAwesome.Sharp.IconButton();
             this.CloseBtn = new FontAwesome.Sharp.IconButton();
             this.MainPanel = new System.Windows.Forms.Panel();
+            this.settingBtn = new FontAwesome.Sharp.IconButton();
+            this.signOutBtn = new FontAwesome.Sharp.IconButton();
             this.MainPannel.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
@@ -53,6 +55,7 @@ namespace Coach_Form_UI
             // MainPannel
             // 
             this.MainPannel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.MainPannel.Controls.Add(this.settingBtn);
             this.MainPannel.Controls.Add(this.AboutUsBtn);
             this.MainPannel.Controls.Add(this.AccountBtn);
             this.MainPannel.Controls.Add(this.BookTicketBtn);
@@ -194,6 +197,7 @@ namespace Coach_Form_UI
             // TopMenuPanel
             // 
             this.TopMenuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.TopMenuPanel.Controls.Add(this.signOutBtn);
             this.TopMenuPanel.Controls.Add(this.ChildLabel);
             this.TopMenuPanel.Controls.Add(this.IconChild);
             this.TopMenuPanel.Controls.Add(this.MiniBtn);
@@ -271,6 +275,49 @@ namespace Coach_Form_UI
             this.MainPanel.Size = new System.Drawing.Size(2114, 1028);
             this.MainPanel.TabIndex = 2;
             // 
+            // settingBtn
+            // 
+            this.settingBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.settingBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.settingBtn.FlatAppearance.BorderSize = 0;
+            this.settingBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.settingBtn.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.settingBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.settingBtn.IconChar = FontAwesome.Sharp.IconChar.Cogs;
+            this.settingBtn.IconColor = System.Drawing.Color.White;
+            this.settingBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.settingBtn.IconSize = 80;
+            this.settingBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.settingBtn.Location = new System.Drawing.Point(0, 1007);
+            this.settingBtn.Name = "settingBtn";
+            this.settingBtn.Size = new System.Drawing.Size(391, 110);
+            this.settingBtn.TabIndex = 5;
+            this.settingBtn.Text = "Manage Coaches";
+            this.settingBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.settingBtn.UseVisualStyleBackColor = false;
+            this.settingBtn.Visible = false;
+            this.settingBtn.Click += new System.EventHandler(this.settingBtn_Click);
+            // 
+            // signOutBtn
+            // 
+            this.signOutBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.signOutBtn.FlatAppearance.BorderSize = 0;
+            this.signOutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.signOutBtn.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold);
+            this.signOutBtn.ForeColor = System.Drawing.Color.White;
+            this.signOutBtn.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
+            this.signOutBtn.IconColor = System.Drawing.Color.White;
+            this.signOutBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.signOutBtn.IconSize = 50;
+            this.signOutBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.signOutBtn.Location = new System.Drawing.Point(1732, 0);
+            this.signOutBtn.Name = "signOutBtn";
+            this.signOutBtn.Size = new System.Drawing.Size(226, 89);
+            this.signOutBtn.TabIndex = 4;
+            this.signOutBtn.Text = "Sign Out";
+            this.signOutBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.signOutBtn.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -311,7 +358,8 @@ namespace Coach_Form_UI
         private FontAwesome.Sharp.IconPictureBox IconChild;
         private System.Windows.Forms.Label ChildLabel;
         private System.Windows.Forms.Panel MainPanel;
-
+        private FontAwesome.Sharp.IconButton settingBtn;
+        private FontAwesome.Sharp.IconButton signOutBtn;
     }
 }
 

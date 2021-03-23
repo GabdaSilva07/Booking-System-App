@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
+using Geolocation;
 
 namespace Coach_Form_UI
 {
@@ -11,14 +12,27 @@ namespace Coach_Form_UI
         private IconButton currentBtn;
         private Panel leftBtnMenu;
         private Form childForm;
+        static bool isAdmin;
 
 
-        public MainForm()
+
+        public MainForm(string userFirstName, string userEmail, string userSurname, int userAge, string userPassword)
         {
             InitializeComponent();
             leftBtnMenu = new Panel();
             leftBtnMenu.Size = new Size(7, 100);
             MainPannel.Controls.Add(leftBtnMenu);
+
+            if (userEmail.Contains("@tripleg.com"))
+            {
+                isAdmin = true;
+                settingBtn.Visible = true;
+            }
+
+            //User Object
+            UserModel currentUser = new UserModel(userEmail, userFirstName, userSurname, userAge, userPassword, isAdmin);
+
+            UserNameLabel.Text = userFirstName + " " + userSurname;
 
             //Main form
             this.DoubleBuffered = true;
@@ -59,6 +73,8 @@ namespace Coach_Form_UI
             public static Color color4 = Color.FromArgb(95, 77, 221);
             public static Color color5 = Color.FromArgb(249, 88, 155);
             public static Color color6 = Color.FromArgb(24, 161, 251);
+            public static Color color7 = Color.FromArgb(48, 214, 17);
+            public static Color color8 = Color.FromArgb(255, 7, 58);
         }
 
         private void activeBtn(object senderBtn, Color color)
@@ -108,17 +124,12 @@ namespace Coach_Form_UI
 
         }
 
-
-
-
         private void HomeBtn_Click(object sender, EventArgs e)
         {
             
             activeBtn(sender, RGBColors.color1);
             openChildForm(new HomeForm());
 
-
-            
         }
 
         private void BookTicketBtn_Click(object sender, EventArgs e)
@@ -130,7 +141,7 @@ namespace Coach_Form_UI
         private void Account_Click(object sender, EventArgs e)
         {
             activeBtn(sender, RGBColors.color3);
-            openChildForm(new AccountForm());
+            openChildForm(new CurrentUserAccount());
         }
 
         private void AbountUsBtn_Click(object sender, EventArgs e)
@@ -138,6 +149,8 @@ namespace Coach_Form_UI
             activeBtn(sender, RGBColors.color4);
             openChildForm(new AbountUsForm());
         }
+
+        
 
 
         private void CloseBtn_Click(object sender, EventArgs e)
@@ -160,6 +173,12 @@ namespace Coach_Form_UI
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void settingBtn_Click(object sender, EventArgs e)
+        {
+            activeBtn(sender, RGBColors.color5);
+            openChildForm(new ManageCoaches());
         }
     }
 }
