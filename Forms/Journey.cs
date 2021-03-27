@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Coach_Form_UI
 {
-    public partial class Journey : Form, IEditText
+    public partial class Journey : Form, IEditText, IPopulate
     {
 
         SqlConnection connection = new SqlConnection();
@@ -22,37 +22,10 @@ namespace Coach_Form_UI
 
         private void Journey_Load(object sender, EventArgs e)
         {
-            populateDeparture();
-            populateArrival();
+            PopulateDeparture();
+            PopulateArrival();
         }
 
-        private void populateDeparture()
-        {
-            using (connection = new SqlConnection(connectionString))
-            using (SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Stations", connection))
-            {
-                DataTable dataTable = new DataTable();
-                adapter.Fill(dataTable);
-                departureList.DataSource = dataTable;
-                departureList.DisplayMember = "Station_Name";
-                departureList.ValueMember = "Station_Name";
-
-            }
-        }
-
-        private void populateArrival()
-        {
-            using (connection = new SqlConnection(connectionString))
-            using (SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Stations", connection))
-            {
-                DataTable dataTable = new DataTable();
-                adapter.Fill(dataTable);
-                arrivalList.DataSource = dataTable;
-                arrivalList.DisplayMember = "Station_Name";
-                arrivalList.ValueMember = "Station_Name";
-            }
-
-        }
 
         private void journeyMinBtn_Click(object sender, EventArgs e)
         {
@@ -260,6 +233,31 @@ namespace Coach_Form_UI
 
         }
 
+        public void PopulateDeparture()
+        {
+            using (connection = new SqlConnection(connectionString))
+            using (SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Stations", connection))
+            {
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+                departureList.DataSource = dataTable;
+                departureList.DisplayMember = "Station_Name";
+                departureList.ValueMember = "Station_Name";
 
+            }
+        }
+
+        public void PopulateArrival()
+        {
+            using (connection = new SqlConnection(connectionString))
+            using (SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Stations", connection))
+            {
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+                arrivalList.DataSource = dataTable;
+                arrivalList.DisplayMember = "Station_Name";
+                arrivalList.ValueMember = "Station_Name";
+            }
+        }
     }
 }
