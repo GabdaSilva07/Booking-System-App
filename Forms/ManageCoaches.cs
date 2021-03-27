@@ -61,5 +61,10 @@ namespace Coach_Form_UI
         {
             openNewForm(new Add_City());
         }
+
+        private void addJourneyBtn_Click(object sender, EventArgs e)
+        {
+            openNewForm(new Journey());
+        }
     }
 }

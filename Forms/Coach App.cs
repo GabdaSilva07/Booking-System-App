@@ -27,6 +27,7 @@ namespace Coach_Form_UI
             {
                 isAdmin = true;
                 settingBtn.Visible = true;
+
             }
 
             //User Object

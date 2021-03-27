@@ -91,6 +91,7 @@ namespace Coach_Form_UI
             this.addJourneyBtn.Text = "Add Journey";
             this.addJourneyBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.addJourneyBtn.UseVisualStyleBackColor = true;
+            this.addJourneyBtn.Click += new System.EventHandler(this.addJourneyBtn_Click);
             // 
             // ManageCoaches
             // 

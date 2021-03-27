@@ -133,6 +133,13 @@
     <Compile Include="Forms\Manage User Booking.Designer.cs">
       <DependentUpon>Manage User Booking.cs</DependentUpon>
     </Compile>
+    <Compile Include="IEditText.cs" />
+    <Compile Include="Forms\Journey.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Journey.Designer.cs">
+      <DependentUpon>Journey.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\UserModel.cs" />
@@ -153,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ManageCoaches.resx">
       <DependentUpon>ManageCoaches.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Journey.resx">
+      <DependentUpon>Journey.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -35,7 +35,7 @@ namespace Coach_Form_UI
             this.citiesLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.listOfCities = new System.Windows.Forms.ListBox();
-            this.ageReg = new System.Windows.Forms.TextBox();
+            this.longitude = new System.Windows.Forms.TextBox();
             this.cityName = new System.Windows.Forms.TextBox();
             this.latitude = new System.Windows.Forms.TextBox();
             this.stationName = new System.Windows.Forms.TextBox();
@@ -47,6 +47,9 @@ namespace Coach_Form_UI
             this.label4 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.deleteBtn = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.deleteButton = new System.Windows.Forms.TextBox();
             this.topPanel.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -119,29 +122,31 @@ namespace Coach_Form_UI
             // 
             this.listOfCities.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.listOfCities.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listOfCities.Font = new System.Drawing.Font("Nirmala UI", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.listOfCities.Font = new System.Drawing.Font("Gadugi", 27.9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listOfCities.ForeColor = System.Drawing.Color.White;
             this.listOfCities.FormattingEnabled = true;
-            this.listOfCities.ItemHeight = 45;
-            this.listOfCities.Location = new System.Drawing.Point(166, 282);
+            this.listOfCities.ItemHeight = 111;
+            this.listOfCities.Location = new System.Drawing.Point(186, 262);
             this.listOfCities.Margin = new System.Windows.Forms.Padding(10);
             this.listOfCities.Name = "listOfCities";
-            this.listOfCities.Size = new System.Drawing.Size(605, 675);
+            this.listOfCities.Size = new System.Drawing.Size(605, 666);
             this.listOfCities.TabIndex = 4;
             // 
-            // ageReg
+            // longitude
             // 
-            this.ageReg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ageReg.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ageReg.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ageReg.ForeColor = System.Drawing.Color.DimGray;
-            this.ageReg.Location = new System.Drawing.Point(1235, 666);
-            this.ageReg.Multiline = true;
-            this.ageReg.Name = "ageReg";
-            this.ageReg.Size = new System.Drawing.Size(605, 65);
-            this.ageReg.TabIndex = 16;
-            this.ageReg.Text = "Station Logitude";
-            this.ageReg.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.longitude.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.longitude.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.longitude.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.longitude.ForeColor = System.Drawing.Color.DimGray;
+            this.longitude.Location = new System.Drawing.Point(1235, 666);
+            this.longitude.Multiline = true;
+            this.longitude.Name = "longitude";
+            this.longitude.Size = new System.Drawing.Size(605, 65);
+            this.longitude.TabIndex = 16;
+            this.longitude.Text = "Station Logitude";
+            this.longitude.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.longitude.Enter += new System.EventHandler(this.longitude_Enter);
+            this.longitude.Leave += new System.EventHandler(this.longitude_Leave);
             // 
             // cityName
             // 
@@ -156,6 +161,8 @@ namespace Coach_Form_UI
             this.cityName.TabIndex = 18;
             this.cityName.Text = "City Name";
             this.cityName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.cityName.Enter += new System.EventHandler(this.cityName_Enter);
+            this.cityName.Leave += new System.EventHandler(this.cityName_Leave);
             // 
             // latitude
             // 
@@ -170,6 +177,8 @@ namespace Coach_Form_UI
             this.latitude.TabIndex = 19;
             this.latitude.Text = "Station Latitude";
             this.latitude.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.latitude.Enter += new System.EventHandler(this.latitude_Enter);
+            this.latitude.Leave += new System.EventHandler(this.latitude_Leave);
             // 
             // stationName
             // 
@@ -184,6 +193,8 @@ namespace Coach_Form_UI
             this.stationName.TabIndex = 20;
             this.stationName.Text = "Station Name";
             this.stationName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.stationName.Enter += new System.EventHandler(this.stationName_Enter);
+            this.stationName.Leave += new System.EventHandler(this.stationName_Leave);
             // 
             // submitBtn
             // 
@@ -197,6 +208,7 @@ namespace Coach_Form_UI
             this.submitBtn.TabIndex = 14;
             this.submitBtn.Text = "Submit";
             this.submitBtn.UseVisualStyleBackColor = true;
+            this.submitBtn.Click += new System.EventHandler(this.submitBtn_Click);
             // 
             // panel7
             // 
@@ -261,20 +273,61 @@ namespace Coach_Form_UI
             this.panel4.Size = new System.Drawing.Size(694, 1);
             this.panel4.TabIndex = 12;
             // 
+            // deleteBtn
+            // 
+            this.deleteBtn.FlatAppearance.BorderSize = 0;
+            this.deleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteBtn.ForeColor = System.Drawing.Color.White;
+            this.deleteBtn.Location = new System.Drawing.Point(135, 1065);
+            this.deleteBtn.Name = "deleteBtn";
+            this.deleteBtn.Size = new System.Drawing.Size(694, 55);
+            this.deleteBtn.TabIndex = 14;
+            this.deleteBtn.Text = "Delete";
+            this.deleteBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Location = new System.Drawing.Point(135, 1029);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(694, 1);
+            this.panel2.TabIndex = 12;
+            // 
+            // deleteButton
+            // 
+            this.deleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.deleteButton.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.deleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteButton.ForeColor = System.Drawing.Color.DimGray;
+            this.deleteButton.Location = new System.Drawing.Point(186, 958);
+            this.deleteButton.Multiline = true;
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(605, 65);
+            this.deleteButton.TabIndex = 20;
+            this.deleteButton.Text = "Delete Entry";
+            this.deleteButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.deleteButton.Enter += new System.EventHandler(this.delete_Enter);
+            this.deleteButton.Leave += new System.EventHandler(this.deleteButton_Leave);
+            // 
             // Add_City
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(2095, 1222);
-            this.Controls.Add(this.ageReg);
+            this.Controls.Add(this.longitude);
             this.Controls.Add(this.cityName);
             this.Controls.Add(this.latitude);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.stationName);
+            this.Controls.Add(this.deleteBtn);
             this.Controls.Add(this.submitBtn);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.addStationLabel);
             this.Controls.Add(this.panel5);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.listOfCities);
@@ -306,7 +359,7 @@ namespace Coach_Form_UI
         private System.Windows.Forms.Label citiesLabel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ListBox listOfCities;
-        private System.Windows.Forms.TextBox ageReg;
+        private System.Windows.Forms.TextBox longitude;
         private System.Windows.Forms.TextBox cityName;
         private System.Windows.Forms.TextBox latitude;
         private System.Windows.Forms.TextBox stationName;
@@ -318,5 +371,8 @@ namespace Coach_Form_UI
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button deleteBtn;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox deleteButton;
     }
 }

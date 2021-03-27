@@ -9,7 +9,7 @@ using System.Threading;
 
 namespace Coach_Form_UI
 {
-    public partial class AccountForm : Form
+    public partial class AccountForm : Form, IEditText
     {
         SqlConnection connection = new SqlConnection("Server=(localdb)\\MSSQLLocalDB;Database=COACH DATABASE FINAL;Trusted_Connection=true");
         Thread thread;
@@ -103,7 +103,7 @@ namespace Coach_Form_UI
                             commandAccount.Parameters.AddWithValue("@Password", password);
 
                             commandAccount.ExecuteNonQuery();
-
+                                
                             connection.Close();
                         }
                     }
@@ -266,108 +266,85 @@ namespace Coach_Form_UI
 
 
         // Set default fields
-
-        private void enterHint(TextBox text)
-        {
-
-            if (text.Text != "")
-            {
-                text.Text = "";
-                text.ForeColor = Color.White;
-
-            }
-
-        }
-
-        private void leaveHint(TextBox text, string message)
-        {
-            if (text.Text == "")
-            {
-                text.Text = message;
-                text.ForeColor = Color.DimGray;
-            }
-
-        }
-
         private void txtUserName_Enter(object sender, EventArgs e)
         {
-            enterHint(LogInEmail);
+            EnterHint(LogInEmail);
 
         }
 
         private void txtPassword_Enter(object sender, EventArgs e)
         {
-            enterHint(txtPassword);
+            EnterHint(txtPassword);
         }
 
         private void LogInEmail_Leave(object sender, EventArgs e)
         {
-            leaveHint(LogInEmail, "Email");
+            LeaveHint(LogInEmail, "Email");
         }
 
         private void txtPassword_Leave(object sender, EventArgs e)
         {
-            leaveHint(txtPassword, "Password");
+            LeaveHint(txtPassword, "Password");
         }
 
         private void firstNameReg_Enter(object sender, EventArgs e)
         {
-            enterHint(firstNameReg);
+            EnterHint(firstNameReg);
         }
 
         private void firstNameReg_Leave(object sender, EventArgs e)
         {
-            leaveHint(firstNameReg, "First Name");
+            LeaveHint(firstNameReg, "First Name");
         }
 
         private void surNameReg_Enter(object sender, EventArgs e)
         {
-            enterHint(surNameReg);
+            EnterHint(surNameReg);
         }
 
         private void surNameReg_Leave(object sender, EventArgs e)
         {
-            leaveHint(surNameReg, "Surname");
+            LeaveHint(surNameReg, "Surname");
         }
 
         private void emailReg_Enter(object sender, EventArgs e)
         {
-            enterHint(emailReg);
+            EnterHint(emailReg);
         }
 
         private void emailReg_Leave(object sender, EventArgs e)
         {
-            leaveHint(emailReg, "Email");
+            LeaveHint(emailReg, "Email");
         }
 
         private void ageReg_Enter(object sender, EventArgs e)
         {
-            enterHint(ageReg);
+            EnterHint(ageReg);
         }
 
         private void ageReg_Leave(object sender, EventArgs e)
         {
-            leaveHint(ageReg, "Age");
+            LeaveHint(ageReg, "Age");
         }
 
         private void passwordReg_Enter(object sender, EventArgs e)
         {
-            enterHint(passwordReg);
+            EnterHint(passwordReg);
         }
 
         private void passwordReg_Leave(object sender, EventArgs e)
         {
-            leaveHint(passwordReg, "Password");
+            LeaveHint(passwordReg, "Password");
         }
 
         private void confirmPasswordReg_Enter(object sender, EventArgs e)
         {
-            enterHint(confirmPasswordReg);
+            EnterHint(confirmPasswordReg);
         }
 
         private void confirmPasswordReg_Leave(object sender, EventArgs e)
         {
-            leaveHint(confirmPasswordReg, "Confirm Password");
+            LeaveHint(confirmPasswordReg, "Confirm Password");
         }
 
         private void logInCloseBtn_Click(object sender, EventArgs e)
@@ -388,6 +365,26 @@ namespace Coach_Form_UI
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        public void EnterHint(TextBox text)
+        {
+
+            if (text.Text != "")
+            {
+                text.Text = "";
+                text.ForeColor = Color.White;
+
+            }
+        }
+
+        public void LeaveHint(TextBox text, string message)
+        {
+            if (text.Text == "")
+            {
+                text.Text = message;
+                text.ForeColor = Color.DimGray;
+            }
         }
     }
 }
