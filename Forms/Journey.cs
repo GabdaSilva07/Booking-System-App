@@ -7,11 +7,11 @@ using System.Windows.Forms;
 
 namespace Coach_Form_UI
 {
-    public partial class Journey : Form, IEditText, IPopulate
+    public partial class Journey : Form
     {
 
         SqlConnection connection = new SqlConnection();
-        string connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=COACH DATABASE FINAL;Trusted_Connection=true";
+        string connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=COACH DATABASE;Trusted_Connection=true";
 
         public Journey()
         {
@@ -22,8 +22,10 @@ namespace Coach_Form_UI
 
         private void Journey_Load(object sender, EventArgs e)
         {
-            PopulateDeparture();
-            PopulateArrival();
+
+            Populate.PopulateComboBox(departureList, "Stations", "Station_Name");
+            Populate.PopulateComboBox(arrivalList, "Stations", "Station_Name");
+
         }
 
 
@@ -37,51 +39,35 @@ namespace Coach_Form_UI
             this.Close();
         }
 
-        public void EnterHint(TextBox text)
-        {
-            if (text.Text != "")
-            {
-                text.Text = "";
-                text.ForeColor = Color.White;
 
-            }
-        }
-
-        public void LeaveHint(TextBox text, string message)
-        {
-            if (text.Text == "")
-            {
-                text.Text = message;
-                text.ForeColor = Color.DimGray;
-            }
-        }
 
         private void depatureTime_Leave(object sender, EventArgs e)
         {
-            LeaveHint(depatureTime, "Depature Time:");
+            BoxHints.LeaveHint(depatureTime, "Depature Time:");
         }
 
         private void depatureTime_Enter(object sender, EventArgs e)
         {
-            EnterHint(depatureTime);
+            BoxHints.EnterHint(depatureTime);
         }
 
         private void arrivalTime_Leave(object sender, EventArgs e)
         {
-            LeaveHint(arrivalTime, "Arrival Time:");
+            BoxHints.LeaveHint(arrivalTime, "Arrival Time:");
         }
 
         private void arrivalTime_Enter(object sender, EventArgs e)
         {
-            EnterHint(arrivalTime);
+            BoxHints.EnterHint(arrivalTime);
         }
 
         private void createJourneyBtn_Click(object sender, EventArgs e)
         {
 
-            if (depatureTime.Text.Contains("Departure Time:") || arrivalTime.Text.Contains("Arrival Time:"))
+            if (depatureTime.Text.Contains("Departure Time:") || arrivalTime.Text.Contains("Arrival Time:") || departureDateBox.Text.Contains("Departure Date:"))
             {
                 MessageBox.Show("One or more fields are empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
             string journeyID = "JOUR" + getRandomID();
@@ -89,12 +75,10 @@ namespace Coach_Form_UI
             string arrivalStation = arrivalList.GetItemText(arrivalList.SelectedItem).ToString();
             string arrivalTimeStore = timeValidation(arrivalTime, "Arrival Time");
             string departureTimeStore = timeValidation(depatureTime, "Departure Time");
-            string ticketPrice = getTicketPrice(depatureStation, arrivalStation);
+            string departureDate = dateValidation(departureDateBox, "Departure Date");
+            string ticketPrice = "£" + getTicketPrice(depatureStation, arrivalStation);
 
             MessageBox.Show(ticketPrice.ToString());
-
-
-            
 
 
 
@@ -122,7 +106,7 @@ namespace Coach_Form_UI
                 else
                 {
 
-                    string query = (string) "INSERT INTO Journeys VALUES(@JourneyID, @StationDeparture, @StationArrival, @DepartureTime, @ArrivalTime, @TicketPrice)";
+                    string query = "INSERT INTO Journeys VALUES(@JourneyID, @StationDeparture, @StationArrival, @DepartureDate, @DepartureTime, @ArrivalTime, @TicketPrice)";
 
                     try
                     {
@@ -133,6 +117,7 @@ namespace Coach_Form_UI
                             command1.Parameters.AddWithValue("@JourneyID", journeyID);
                             command1.Parameters.AddWithValue("@StationDeparture", depatureStation);
                             command1.Parameters.AddWithValue("@StationArrival", arrivalStation);
+                            command1.Parameters.AddWithValue("@DepartureDate", departureDate);
                             command1.Parameters.AddWithValue("@DepartureTime", departureTimeStore);
                             command1.Parameters.AddWithValue("@ArrivalTime", arrivalTimeStore);
                             command1.Parameters.AddWithValue("@TicketPrice", ticketPrice.Trim());
@@ -140,6 +125,7 @@ namespace Coach_Form_UI
                             command1.ExecuteNonQuery();
 
                             MessageBox.Show(journeyID + "\n" + depatureStation + "\n" + arrivalStation + "\n" + ticketPrice + "\n" + departureTimeStore + "\n" + arrivalTimeStore);
+
                             connection.Close();
 
                         }
@@ -147,7 +133,7 @@ namespace Coach_Form_UI
                     catch (Exception error)
                     {
 
-                        MessageBox.Show(error.StackTrace.ToString());
+                        MessageBox.Show(error.ToString());
                     }
                 }
 
@@ -155,7 +141,28 @@ namespace Coach_Form_UI
             }
         }
 
-        private string getRandomID()
+        private string dateValidation(TextBox departureDateBox, string error)
+        {
+            DateTime time = new DateTime();
+
+
+            if (DateTime.TryParse(departureDateBox.Text, out time))
+            {
+                time.GetDateTimeFormats();
+
+                return time.ToString("dd/MM/yyyy");
+
+
+            }
+            else
+            {
+                MessageBox.Show(error + " is in the incorrect format");
+                return "Incorrect Format";
+
+            }
+        }
+
+        public static string getRandomID()
         {
             Random random = new Random();
             return random.Next(0, 100000).ToString();
@@ -233,31 +240,15 @@ namespace Coach_Form_UI
 
         }
 
-        public void PopulateDeparture()
-        {
-            using (connection = new SqlConnection(connectionString))
-            using (SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Stations", connection))
-            {
-                DataTable dataTable = new DataTable();
-                adapter.Fill(dataTable);
-                departureList.DataSource = dataTable;
-                departureList.DisplayMember = "Station_Name";
-                departureList.ValueMember = "Station_Name";
 
-            }
+        private void departureDateBox_Enter(object sender, EventArgs e)
+        {
+            BoxHints.EnterHint(departureDateBox);
         }
 
-        public void PopulateArrival()
+        private void departureDateBox_Leave(object sender, EventArgs e)
         {
-            using (connection = new SqlConnection(connectionString))
-            using (SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Stations", connection))
-            {
-                DataTable dataTable = new DataTable();
-                adapter.Fill(dataTable);
-                arrivalList.DataSource = dataTable;
-                arrivalList.DisplayMember = "Station_Name";
-                arrivalList.ValueMember = "Station_Name";
-            }
+            BoxHints.LeaveHint(departureDateBox, "Departure Date:");
         }
     }
 }

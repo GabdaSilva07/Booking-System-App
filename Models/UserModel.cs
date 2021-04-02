@@ -8,7 +8,7 @@ namespace Coach_Form_UI
 {
     class UserModel
     {
-        private string email { get; set; }
+        private static string email { get; set; }
 
         private string firstName { get; set; }
 
@@ -33,7 +33,7 @@ namespace Coach_Form_UI
             Admin = isAdmin;
         }
 
-        public string Email
+        public static string Email
         {
             get { return email; }
             set { email = value; }

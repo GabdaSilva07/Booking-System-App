@@ -30,21 +30,20 @@ namespace Coach_Form_UI
         private void InitializeComponent()
         {
             this.MainPannel = new System.Windows.Forms.Panel();
-            this.AboutUsBtn = new FontAwesome.Sharp.IconButton();
-            this.AccountBtn = new FontAwesome.Sharp.IconButton();
+            this.manageAccount = new FontAwesome.Sharp.IconButton();
+            this.settingBtn = new FontAwesome.Sharp.IconButton();
             this.BookTicketBtn = new FontAwesome.Sharp.IconButton();
             this.HomeBtn = new FontAwesome.Sharp.IconButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.UserNameLabel = new System.Windows.Forms.Label();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.TopMenuPanel = new System.Windows.Forms.Panel();
+            this.signOutBtn = new FontAwesome.Sharp.IconButton();
             this.ChildLabel = new System.Windows.Forms.Label();
             this.IconChild = new FontAwesome.Sharp.IconPictureBox();
             this.MiniBtn = new FontAwesome.Sharp.IconButton();
             this.CloseBtn = new FontAwesome.Sharp.IconButton();
             this.MainPanel = new System.Windows.Forms.Panel();
-            this.settingBtn = new FontAwesome.Sharp.IconButton();
-            this.signOutBtn = new FontAwesome.Sharp.IconButton();
             this.MainPannel.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
@@ -55,9 +54,8 @@ namespace Coach_Form_UI
             // MainPannel
             // 
             this.MainPannel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.MainPannel.Controls.Add(this.manageAccount);
             this.MainPannel.Controls.Add(this.settingBtn);
-            this.MainPannel.Controls.Add(this.AboutUsBtn);
-            this.MainPannel.Controls.Add(this.AccountBtn);
             this.MainPannel.Controls.Add(this.BookTicketBtn);
             this.MainPannel.Controls.Add(this.HomeBtn);
             this.MainPannel.Controls.Add(this.panel2);
@@ -67,49 +65,51 @@ namespace Coach_Form_UI
             this.MainPannel.Size = new System.Drawing.Size(391, 1117);
             this.MainPannel.TabIndex = 0;
             // 
-            // AboutUsBtn
+            // manageAccount
             // 
-            this.AboutUsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.AboutUsBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.AboutUsBtn.FlatAppearance.BorderSize = 0;
-            this.AboutUsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AboutUsBtn.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AboutUsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.AboutUsBtn.IconChar = FontAwesome.Sharp.IconChar.Building;
-            this.AboutUsBtn.IconColor = System.Drawing.Color.White;
-            this.AboutUsBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.AboutUsBtn.IconSize = 80;
-            this.AboutUsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AboutUsBtn.Location = new System.Drawing.Point(0, 626);
-            this.AboutUsBtn.Name = "AboutUsBtn";
-            this.AboutUsBtn.Size = new System.Drawing.Size(391, 110);
-            this.AboutUsBtn.TabIndex = 4;
-            this.AboutUsBtn.Text = "About Us";
-            this.AboutUsBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.AboutUsBtn.UseVisualStyleBackColor = false;
-            this.AboutUsBtn.Click += new System.EventHandler(this.AbountUsBtn_Click);
+            this.manageAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.manageAccount.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.manageAccount.FlatAppearance.BorderSize = 0;
+            this.manageAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.manageAccount.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.manageAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.manageAccount.IconChar = FontAwesome.Sharp.IconChar.Users;
+            this.manageAccount.IconColor = System.Drawing.Color.White;
+            this.manageAccount.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.manageAccount.IconSize = 80;
+            this.manageAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.manageAccount.Location = new System.Drawing.Point(0, 897);
+            this.manageAccount.Name = "manageAccount";
+            this.manageAccount.Size = new System.Drawing.Size(391, 110);
+            this.manageAccount.TabIndex = 6;
+            this.manageAccount.Text = "Manage Account";
+            this.manageAccount.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.manageAccount.UseVisualStyleBackColor = false;
+            this.manageAccount.Visible = false;
+            this.manageAccount.Click += new System.EventHandler(this.manageAccount_Click);
             // 
-            // AccountBtn
+            // settingBtn
             // 
-            this.AccountBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.AccountBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.AccountBtn.FlatAppearance.BorderSize = 0;
-            this.AccountBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AccountBtn.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AccountBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.AccountBtn.IconChar = FontAwesome.Sharp.IconChar.User;
-            this.AccountBtn.IconColor = System.Drawing.Color.White;
-            this.AccountBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.AccountBtn.IconSize = 80;
-            this.AccountBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AccountBtn.Location = new System.Drawing.Point(0, 516);
-            this.AccountBtn.Name = "AccountBtn";
-            this.AccountBtn.Size = new System.Drawing.Size(391, 110);
-            this.AccountBtn.TabIndex = 3;
-            this.AccountBtn.Text = "Account";
-            this.AccountBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.AccountBtn.UseVisualStyleBackColor = false;
-            this.AccountBtn.Click += new System.EventHandler(this.Account_Click);
+            this.settingBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.settingBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.settingBtn.FlatAppearance.BorderSize = 0;
+            this.settingBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.settingBtn.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.settingBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.settingBtn.IconChar = FontAwesome.Sharp.IconChar.Cogs;
+            this.settingBtn.IconColor = System.Drawing.Color.White;
+            this.settingBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.settingBtn.IconSize = 80;
+            this.settingBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.settingBtn.Location = new System.Drawing.Point(0, 1007);
+            this.settingBtn.Name = "settingBtn";
+            this.settingBtn.Size = new System.Drawing.Size(391, 110);
+            this.settingBtn.TabIndex = 5;
+            this.settingBtn.Text = "Manage Coaches";
+            this.settingBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.settingBtn.UseVisualStyleBackColor = false;
+            this.settingBtn.Visible = false;
+            this.settingBtn.Click += new System.EventHandler(this.settingBtn_Click);
             // 
             // BookTicketBtn
             // 
@@ -209,6 +209,26 @@ namespace Coach_Form_UI
             this.TopMenuPanel.TabIndex = 1;
             this.TopMenuPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TopMenuPanel_MouseDown);
             // 
+            // signOutBtn
+            // 
+            this.signOutBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.signOutBtn.FlatAppearance.BorderSize = 0;
+            this.signOutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.signOutBtn.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold);
+            this.signOutBtn.ForeColor = System.Drawing.Color.White;
+            this.signOutBtn.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
+            this.signOutBtn.IconColor = System.Drawing.Color.White;
+            this.signOutBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.signOutBtn.IconSize = 50;
+            this.signOutBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.signOutBtn.Location = new System.Drawing.Point(1732, 0);
+            this.signOutBtn.Name = "signOutBtn";
+            this.signOutBtn.Size = new System.Drawing.Size(226, 89);
+            this.signOutBtn.TabIndex = 4;
+            this.signOutBtn.Text = "Sign Out";
+            this.signOutBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.signOutBtn.UseVisualStyleBackColor = true;
+            // 
             // ChildLabel
             // 
             this.ChildLabel.AutoSize = true;
@@ -275,49 +295,6 @@ namespace Coach_Form_UI
             this.MainPanel.Size = new System.Drawing.Size(2114, 1028);
             this.MainPanel.TabIndex = 2;
             // 
-            // settingBtn
-            // 
-            this.settingBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.settingBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.settingBtn.FlatAppearance.BorderSize = 0;
-            this.settingBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.settingBtn.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.settingBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.settingBtn.IconChar = FontAwesome.Sharp.IconChar.Cogs;
-            this.settingBtn.IconColor = System.Drawing.Color.White;
-            this.settingBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.settingBtn.IconSize = 80;
-            this.settingBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.settingBtn.Location = new System.Drawing.Point(0, 1007);
-            this.settingBtn.Name = "settingBtn";
-            this.settingBtn.Size = new System.Drawing.Size(391, 110);
-            this.settingBtn.TabIndex = 5;
-            this.settingBtn.Text = "Manage Coaches";
-            this.settingBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.settingBtn.UseVisualStyleBackColor = false;
-            this.settingBtn.Visible = false;
-            this.settingBtn.Click += new System.EventHandler(this.settingBtn_Click);
-            // 
-            // signOutBtn
-            // 
-            this.signOutBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.signOutBtn.FlatAppearance.BorderSize = 0;
-            this.signOutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.signOutBtn.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold);
-            this.signOutBtn.ForeColor = System.Drawing.Color.White;
-            this.signOutBtn.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
-            this.signOutBtn.IconColor = System.Drawing.Color.White;
-            this.signOutBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.signOutBtn.IconSize = 50;
-            this.signOutBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.signOutBtn.Location = new System.Drawing.Point(1732, 0);
-            this.signOutBtn.Name = "signOutBtn";
-            this.signOutBtn.Size = new System.Drawing.Size(226, 89);
-            this.signOutBtn.TabIndex = 4;
-            this.signOutBtn.Text = "Sign Out";
-            this.signOutBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.signOutBtn.UseVisualStyleBackColor = true;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -350,8 +327,6 @@ namespace Coach_Form_UI
         private System.Windows.Forms.Label UserNameLabel;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private FontAwesome.Sharp.IconButton BookTicketBtn;
-        private FontAwesome.Sharp.IconButton AccountBtn;
-        private FontAwesome.Sharp.IconButton AboutUsBtn;
         private System.Windows.Forms.Panel TopMenuPanel;
         private FontAwesome.Sharp.IconButton CloseBtn;
         private FontAwesome.Sharp.IconButton MiniBtn;
@@ -360,6 +335,7 @@ namespace Coach_Form_UI
         private System.Windows.Forms.Panel MainPanel;
         private FontAwesome.Sharp.IconButton settingBtn;
         private FontAwesome.Sharp.IconButton signOutBtn;
+        private FontAwesome.Sharp.IconButton manageAccount;
     }
 }
 

@@ -42,6 +42,8 @@ namespace Coach_Form_UI
             this.topPanel = new System.Windows.Forms.Panel();
             this.journeyMinBtn = new FontAwesome.Sharp.IconPictureBox();
             this.journeyCloseBtn = new FontAwesome.Sharp.IconPictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.departureDateBox = new System.Windows.Forms.TextBox();
             this.panel5.SuspendLayout();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.journeyMinBtn)).BeginInit();
@@ -205,6 +207,30 @@ namespace Coach_Form_UI
             this.journeyCloseBtn.TabStop = false;
             this.journeyCloseBtn.Click += new System.EventHandler(this.journeyCloseBtn_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Location = new System.Drawing.Point(636, 519);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(694, 1);
+            this.panel1.TabIndex = 9;
+            // 
+            // departureDateBox
+            // 
+            this.departureDateBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.departureDateBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.departureDateBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.departureDateBox.ForeColor = System.Drawing.Color.DimGray;
+            this.departureDateBox.Location = new System.Drawing.Point(687, 448);
+            this.departureDateBox.Multiline = true;
+            this.departureDateBox.Name = "departureDateBox";
+            this.departureDateBox.Size = new System.Drawing.Size(605, 65);
+            this.departureDateBox.TabIndex = 12;
+            this.departureDateBox.Text = "Departure Date:";
+            this.departureDateBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.departureDateBox.Enter += new System.EventHandler(this.departureDateBox_Enter);
+            this.departureDateBox.Leave += new System.EventHandler(this.departureDateBox_Leave);
+            // 
             // Journey
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -214,7 +240,9 @@ namespace Coach_Form_UI
             this.Controls.Add(this.topPanel);
             this.Controls.Add(this.createJourneyBtn);
             this.Controls.Add(this.arrivalTime);
+            this.Controls.Add(this.departureDateBox);
             this.Controls.Add(this.depatureTime);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.Arrival);
@@ -250,5 +278,7 @@ namespace Coach_Form_UI
         private System.Windows.Forms.Panel topPanel;
         private FontAwesome.Sharp.IconPictureBox journeyMinBtn;
         private FontAwesome.Sharp.IconPictureBox journeyCloseBtn;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox departureDateBox;
     }
 }

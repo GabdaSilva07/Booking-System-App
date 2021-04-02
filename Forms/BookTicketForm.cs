@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace Coach_Form_UI
 {
-    public partial class BookTicketForm : Form, IPopulate
+    public partial class BookTicketForm : Form
     {
 
         SqlConnection connection = new SqlConnection();
-        string connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=COACH DATABASE FINAL;Trusted_Connection=true";
+        string connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=COACH DATABASE;Trusted_Connection=true";
         public BookTicketForm()
         {
             InitializeComponent();
@@ -23,36 +23,14 @@ namespace Coach_Form_UI
 
         private void BookTicketForm_Load(object sender, EventArgs e)
         {
-            PopulateDeparture();
-            PopulateArrival();
+
+            Populate.PopulateComboBox(arrivalListBooking, "Stations", "Station_Name");
+            Populate.PopulateComboBox(departureListBooking, "Stations", "Station_Name");
+            Populate.PopulateComboBox(DateBox, "Journeys", "DepartureDate");
+
         }
 
-        public void PopulateArrival()
-        {
-            using (connection = new SqlConnection(connectionString))
-            using (SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Stations", connection))
-            {
-                DataTable dataTable = new DataTable();
-                adapter.Fill(dataTable);
-                arrivalListBooking.DataSource = dataTable;
-                arrivalListBooking.DisplayMember = "Station_Name";
-                arrivalListBooking.ValueMember = "Station_Name";
-            }
-        }
-
-        public void PopulateDeparture()
-        {
-            using (connection = new SqlConnection(connectionString))
-            using (SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Stations", connection))
-            {
-                DataTable dataTable = new DataTable();
-                adapter.Fill(dataTable);
-                departureListBooking.DataSource = dataTable;
-                departureListBooking.DisplayMember = "Station_Name";
-                departureListBooking.ValueMember = "Station_Name";
-
-            }
-        }
+      
 
         private void searchJourney_Click(object sender, EventArgs e)
         {
@@ -64,12 +42,14 @@ namespace Coach_Form_UI
 
                 string departureStationChosen = departureListBooking.GetItemText(departureListBooking.SelectedItem);
                 string arrivalStationChosen = arrivalListBooking.GetItemText(arrivalListBooking.SelectedItem);
+                string departureDate = DateBox.GetItemText(DateBox.SelectedItem);
                 DataTable dataTable;
                 SqlDataAdapter dataAdapter;
                 DataSet dataSet;
                 listViewJourneys.Columns.Add("Journey ID", 250, HorizontalAlignment.Left);
                 listViewJourneys.Columns.Add("Departure", 420, HorizontalAlignment.Left);
                 listViewJourneys.Columns.Add("Arrival", 420, HorizontalAlignment.Left);
+                listViewJourneys.Columns.Add("Departure Date", 200, HorizontalAlignment.Right);
                 listViewJourneys.Columns.Add("Depature Time", 200, HorizontalAlignment.Right);
                 listViewJourneys.Columns.Add("Arrival Time", 190, HorizontalAlignment.Right);
                 listViewJourneys.Columns.Add("Ticket Price", 170, HorizontalAlignment.Right);
@@ -77,7 +57,7 @@ namespace Coach_Form_UI
                   
 
                 using (SqlCommand command1 = new SqlCommand("SELECT * FROM Journeys WHERE StationDeparture = '" + departureStationChosen + "' AND " +
-                    "StationArrival = '" + arrivalStationChosen + "'", connection))
+                    "StationArrival = '" + arrivalStationChosen + "' AND DepartureDate = '" + departureDate + "'", connection))
                 {
                     dataAdapter = new SqlDataAdapter(command1);
                     dataSet = new DataSet();
@@ -93,6 +73,7 @@ namespace Coach_Form_UI
                         listViewJourneys.Items[i].SubItems.Add(dataTable.Rows[i].ItemArray[3].ToString());
                         listViewJourneys.Items[i].SubItems.Add(dataTable.Rows[i].ItemArray[4].ToString());
                         listViewJourneys.Items[i].SubItems.Add(dataTable.Rows[i].ItemArray[5].ToString());
+                        listViewJourneys.Items[i].SubItems.Add(dataTable.Rows[i].ItemArray[6].ToString());
 
                     }
                 }
@@ -100,5 +81,31 @@ namespace Coach_Form_UI
             
             }
         }
+
+        private void bookTicketBtn_Click(object sender, EventArgs e)
+        {
+
+            if (listViewJourneys.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("No Journey Selected", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else 
+            {
+                string bookingID = "BOOK" + Journey.getRandomID().Trim();
+                string journeyID = listViewJourneys.SelectedItems[0].Text;
+
+
+                PaymentForm paymentForm = new PaymentForm(bookingID, journeyID);
+                paymentForm.Show();
+
+            }
+
+
+
+            
+        }
+
+
     }
 }

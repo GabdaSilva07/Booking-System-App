@@ -27,12 +27,17 @@ namespace Coach_Form_UI
             {
                 isAdmin = true;
                 settingBtn.Visible = true;
-
+                settingBtn.Dock = DockStyle.Top;
+                manageAccount.Visible = true;
+                manageAccount.Dock = DockStyle.Top;
+                BookTicketBtn.Visible = false;
             }
 
             //User Object
             UserModel currentUser = new UserModel(userEmail, userFirstName, userSurname, userAge, userPassword, isAdmin);
 
+
+           
             UserNameLabel.Text = userFirstName + " " + userSurname;
 
             //Main form
@@ -139,19 +144,7 @@ namespace Coach_Form_UI
             openChildForm(new BookTicketForm());
         }
 
-        private void Account_Click(object sender, EventArgs e)
-        {
-            activeBtn(sender, RGBColors.color3);
-            openChildForm(new CurrentUserAccount());
-        }
-
-        private void AbountUsBtn_Click(object sender, EventArgs e)
-        {
-            activeBtn(sender, RGBColors.color4);
-            openChildForm(new AbountUsForm());
-        }
-
-        
+ 
 
 
         private void CloseBtn_Click(object sender, EventArgs e)
@@ -180,6 +173,12 @@ namespace Coach_Form_UI
         {
             activeBtn(sender, RGBColors.color5);
             openChildForm(new ManageCoaches());
+        }
+
+        private void manageAccount_Click(object sender, EventArgs e)
+        {
+            activeBtn(sender, RGBColors.color3);
+            openChildForm(new Manage_User_Booking());
         }
     }
 }

@@ -106,9 +106,9 @@ namespace Coach_Form_UI
             this.citiesLabel.ForeColor = System.Drawing.Color.White;
             this.citiesLabel.Location = new System.Drawing.Point(391, 180);
             this.citiesLabel.Name = "citiesLabel";
-            this.citiesLabel.Size = new System.Drawing.Size(139, 56);
+            this.citiesLabel.Size = new System.Drawing.Size(193, 56);
             this.citiesLabel.TabIndex = 2;
-            this.citiesLabel.Text = "Cities";
+            this.citiesLabel.Text = "Stations";
             // 
             // panel1
             // 

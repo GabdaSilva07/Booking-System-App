@@ -9,9 +9,9 @@ using System.Threading;
 
 namespace Coach_Form_UI
 {
-    public partial class AccountForm : Form, IEditText
+    public partial class AccountForm : Form
     {
-        SqlConnection connection = new SqlConnection("Server=(localdb)\\MSSQLLocalDB;Database=COACH DATABASE FINAL;Trusted_Connection=true");
+        SqlConnection connection = new SqlConnection("Server=(localdb)\\MSSQLLocalDB;Database=COACH DATABASE;Trusted_Connection=true");
         Thread thread;
 
         private static string userFirstName;
@@ -119,6 +119,7 @@ namespace Coach_Form_UI
                 }
 
             }
+           
 
         }
 
@@ -268,83 +269,83 @@ namespace Coach_Form_UI
         // Set default fields
         private void txtUserName_Enter(object sender, EventArgs e)
         {
-            EnterHint(LogInEmail);
+            BoxHints.EnterHint(LogInEmail);
 
         }
 
         private void txtPassword_Enter(object sender, EventArgs e)
         {
-            EnterHint(txtPassword);
+            BoxHints.EnterHint(txtPassword);
         }
 
         private void LogInEmail_Leave(object sender, EventArgs e)
         {
-            LeaveHint(LogInEmail, "Email");
+            BoxHints.LeaveHint(LogInEmail, "Email");
         }
 
         private void txtPassword_Leave(object sender, EventArgs e)
         {
-            LeaveHint(txtPassword, "Password");
+            BoxHints.LeaveHint(txtPassword, "Password");
         }
 
         private void firstNameReg_Enter(object sender, EventArgs e)
         {
-            EnterHint(firstNameReg);
+            BoxHints.EnterHint(firstNameReg);
         }
 
         private void firstNameReg_Leave(object sender, EventArgs e)
         {
-            LeaveHint(firstNameReg, "First Name");
+            BoxHints.LeaveHint(firstNameReg, "First Name");
         }
 
         private void surNameReg_Enter(object sender, EventArgs e)
         {
-            EnterHint(surNameReg);
+            BoxHints.EnterHint(surNameReg);
         }
 
         private void surNameReg_Leave(object sender, EventArgs e)
         {
-            LeaveHint(surNameReg, "Surname");
+            BoxHints.LeaveHint(surNameReg, "Surname");
         }
 
         private void emailReg_Enter(object sender, EventArgs e)
         {
-            EnterHint(emailReg);
+            BoxHints.EnterHint(emailReg);
         }
 
         private void emailReg_Leave(object sender, EventArgs e)
         {
-            LeaveHint(emailReg, "Email");
+            BoxHints.LeaveHint(emailReg, "Email");
         }
 
         private void ageReg_Enter(object sender, EventArgs e)
         {
-            EnterHint(ageReg);
+            BoxHints.EnterHint(ageReg);
         }
 
         private void ageReg_Leave(object sender, EventArgs e)
         {
-            LeaveHint(ageReg, "Age");
+            BoxHints.LeaveHint(ageReg, "Age");
         }
 
         private void passwordReg_Enter(object sender, EventArgs e)
         {
-            EnterHint(passwordReg);
+            BoxHints.EnterHint(passwordReg);
         }
 
         private void passwordReg_Leave(object sender, EventArgs e)
         {
-            LeaveHint(passwordReg, "Password");
+            BoxHints.LeaveHint(passwordReg, "Password");
         }
 
         private void confirmPasswordReg_Enter(object sender, EventArgs e)
         {
-            EnterHint(confirmPasswordReg);
+            BoxHints.EnterHint(confirmPasswordReg);
         }
 
         private void confirmPasswordReg_Leave(object sender, EventArgs e)
         {
-            LeaveHint(confirmPasswordReg, "Confirm Password");
+            BoxHints.LeaveHint(confirmPasswordReg, "Confirm Password");
         }
 
         private void logInCloseBtn_Click(object sender, EventArgs e)
@@ -367,24 +368,8 @@ namespace Coach_Form_UI
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        public void EnterHint(TextBox text)
-        {
 
-            if (text.Text != "")
-            {
-                text.Text = "";
-                text.ForeColor = Color.White;
 
-            }
-        }
 
-        public void LeaveHint(TextBox text, string message)
-        {
-            if (text.Text == "")
-            {
-                text.Text = message;
-                text.ForeColor = Color.DimGray;
-            }
-        }
     }
 }

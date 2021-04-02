@@ -7,12 +7,12 @@ using System.Windows.Forms;
 
 namespace Coach_Form_UI
 {
-    public partial class Add_City : Form, IEditText
+    public partial class Add_City : Form
     {
         Label title = new Label();
-        SqlConnection connection = new SqlConnection("Server=(localdb)\\MSSQLLocalDB;Database=COACH DATABASE FINAL;Trusted_Connection=true");
+        SqlConnection connection = new SqlConnection("Server=(localdb)\\MSSQLLocalDB;Database=COACH DATABASE;Trusted_Connection=true");
 
-        string connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=COACH DATABASE FINAL;Trusted_Connection=true";
+        string connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=COACH DATABASE;Trusted_Connection=true";
         public Add_City()
         {
             InitializeComponent();
@@ -65,62 +65,45 @@ namespace Coach_Form_UI
 
 
 
-        public void EnterHint(TextBox text)
-        {
-            if (text.Text != "")
-            {
-                text.Text = "";
-                text.ForeColor = Color.White;
-
-            }
-        }
-
-        public void LeaveHint(TextBox text, string message)
-        {
-            if (text.Text == "")
-            {
-                text.Text = message;
-                text.ForeColor = Color.DimGray;
-            }
-        }
+        
 
         private void stationName_Leave(object sender, EventArgs e)
         {
-            LeaveHint(stationName, "Station Name");
+            BoxHints.LeaveHint(stationName, "Station Name");
         }
         private void stationName_Enter(object sender, EventArgs e)
         {
-            EnterHint(stationName);
+            BoxHints.EnterHint(stationName);
         }
 
         private void cityName_Leave(object sender, EventArgs e)
         {
-            LeaveHint(cityName, "City Name");
+            BoxHints.LeaveHint(cityName, "City Name");
         }
 
         private void cityName_Enter(object sender, EventArgs e)
         {
-            EnterHint(cityName);
+            BoxHints.EnterHint(cityName);
         }
 
         private void latitude_Enter(object sender, EventArgs e)
         {
-            EnterHint(latitude);
+            BoxHints.EnterHint(latitude);
         }
 
         private void latitude_Leave(object sender, EventArgs e)
         {
-            LeaveHint(latitude, "Station Latitude");
+            BoxHints.LeaveHint(latitude, "Station Latitude");
         }
 
         private void longitude_Enter(object sender, EventArgs e)
         {
-            EnterHint(longitude);
+            BoxHints.EnterHint(longitude);
         }
 
         private void longitude_Leave(object sender, EventArgs e)
         {
-            LeaveHint(longitude, "Station Longitude");
+            BoxHints.LeaveHint(longitude, "Station Longitude");
         }
 
         private void submitBtn_Click(object sender, EventArgs e)
@@ -137,12 +120,16 @@ namespace Coach_Form_UI
             double latitudeStore = doubleValidation(latitude, "Latitude");
             double longitudeStore = doubleValidation(longitude, "Longitude");
 
+            if (station == "Invalid Input" || city == "Invalid Input")
+            {
+                return;
+            }
+
 
             using (connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand("SELECT * FROM Stations WHERE Station_Name = '" + station + "'", connection))
             {
                 connection.Open();
-                MessageBox.Show(connection.State.ToString());
 
                 DataSet dataSet = new DataSet();
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
@@ -183,21 +170,21 @@ namespace Coach_Form_UI
                     }
 
 
-                    MessageBox.Show("Station " + station + "has been added.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    MessageBox.Show("Station " + station + " has been added.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
                     return;
                 }
 
             }
         }
 
-        private string stringValidation(TextBox textBox, string errorLocation)
+        public static string stringValidation(TextBox textBox, string errorLocation)
         {
             string result = textBox.Text.ToString();
             bool validInput = true;
 
             for (int i = 0; i < result.Length; i++)
             {
-                if (!char.IsLetter(result[i]))
+                if (!char.IsLetter(result[i]) && !char.IsWhiteSpace(result[i]))
                 {
                     validInput = false;
                     result = "Invalid Input";
@@ -207,7 +194,7 @@ namespace Coach_Form_UI
             }
             if (validInput == false)
             {
-                MessageBox.Show("Invalid " + errorLocation, "Invalid Input");
+                MessageBox.Show("Invalid " + errorLocation, " Invalid Input");
 
             }
 
@@ -265,12 +252,12 @@ namespace Coach_Form_UI
 
         private void delete_Enter(object sender, EventArgs e)
         {
-            EnterHint(deleteButton);
+            BoxHints.EnterHint(deleteButton);
         }
 
         private void deleteButton_Leave(object sender, EventArgs e)
         {
-            LeaveHint(deleteButton, "Delete Entry");
+            BoxHints.LeaveHint(deleteButton, "Delete Entry");
         }
     }
 }

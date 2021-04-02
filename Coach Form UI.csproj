@@ -71,6 +71,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Reusables\BoxHints.cs" />
     <Compile Include="COACH_DATABASE_FINALDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -82,12 +83,6 @@
     <Compile Include="Forms\Add City.Designer.cs">
       <DependentUpon>Add City.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\CurrentUserAccount.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CurrentUserAccount.Designer.cs">
-      <DependentUpon>CurrentUserAccount.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\ManageCoaches.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,12 +91,6 @@
     </Compile>
     <Compile Include="Forms\NavigationClass.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\AbountUsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\AbountUsForm.Designer.cs">
-      <DependentUpon>AbountUsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Login.cs">
       <SubType>Form</SubType>
@@ -133,14 +122,19 @@
     <Compile Include="Forms\Manage User Booking.Designer.cs">
       <DependentUpon>Manage User Booking.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\IEditText.cs" />
     <Compile Include="Forms\Journey.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Journey.Designer.cs">
       <DependentUpon>Journey.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\IPopulate.cs" />
+    <Compile Include="Forms\PaymentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PaymentForm.Designer.cs">
+      <DependentUpon>PaymentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reusables\Populate.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\UserModel.cs" />
@@ -156,17 +150,20 @@
     <EmbeddedResource Include="Forms\Coach App.resx">
       <DependentUpon>Coach App.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AbountUsForm.resx">
-      <DependentUpon>AbountUsForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Manage User Booking.resx">
+      <DependentUpon>Manage User Booking.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ManageCoaches.resx">
       <DependentUpon>ManageCoaches.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Journey.resx">
       <DependentUpon>Journey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PaymentForm.resx">
+      <DependentUpon>PaymentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
